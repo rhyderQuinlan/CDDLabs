@@ -9,6 +9,9 @@
 #include <thread>
 #include <unistd.h>
 
+/*Task 2 will be forced to wait until Task one 
+*ends and gives a signal before continuing*/
+
 /*! displays a message first*/
 void taskOne(std::shared_ptr<Semaphore> theSemaphore, int delay){
   sleep(delay);
@@ -16,9 +19,11 @@ void taskOne(std::shared_ptr<Semaphore> theSemaphore, int delay){
   std::cout << "must ";
   std::cout << "print ";
   std::cout << "first"<<std::endl;
+  theSemaphore -> Signal();
 }
 /*! displays a message second*/
 void taskTwo(std::shared_ptr<Semaphore> theSemaphore){
+  theSemaphore -> Wait();
   std::cout <<"This ";
   std::cout << "will ";
   std::cout << "appear ";
