@@ -1,5 +1,5 @@
-#Lab 2 - Semaphores
-##Project License
+# Lab 2 - Semaphores
+## Project License
 MIT License
 
 Copyright (c) [2019] [Rhyder Quinlan]
@@ -24,17 +24,17 @@ SOFTWARE.
 
 
 
-##Authors
+## Authors
 Rhyder Quinlan, C00223030
 Joseph Kehoe
 
-##Installation
+## Installation
 Run the makefile from the command line - "make", run as ./signal
 
-##Required libraries
+## Required libraries
 sudo apt-get install build-essential
 
-##Files:
+## Files:
  * Semaphore.h
  * Semaphore.cpp
  * signal.cpp
