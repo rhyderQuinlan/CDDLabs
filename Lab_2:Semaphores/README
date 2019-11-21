@@ -32,10 +32,12 @@ Joseph Kehoe
 Run the makefile from the command line - "make", run as ./signal
 
 ## Required libraries
+```bash
 sudo apt-get install build-essential
+```
 
 ## Files:
- * Semaphore.h
- * Semaphore.cpp
- * signal.cpp
- * main.cpp
+ - Semaphore.h
+ - Semaphore.cpp
+ - signal.cpp
+ - main.cpp
