@@ -25,8 +25,8 @@ SOFTWARE.
 
 
 ## Authors
-Rhyder Quinlan, C00223030
-Joseph Kehoe
+ - Rhyder Quinlan, C00223030
+ - Joseph Kehoe
 
 ## Installation
 Run the makefile from the command line - "make", run as ./helloThreads
