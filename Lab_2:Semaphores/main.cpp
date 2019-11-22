@@ -1,16 +1,23 @@
-/*! \class Signal
-    \brief An Implementation of Threads Using Semaphores 
-
-   Uses C++11 features such as mutex and condition variables to implement Semaphores in thread functions 
-
-*/
+/**
+ * @file main.cpp
+ * @author Rhyder Quinlan
+ * @brief An Implementation of Threads Using Semaphores. Uses C++11 features such as mutex and condition variables to implement Semaphores in thread functions
+ * @version 0.1
+ * @date 2019-11-22
+ * 
+ * @copyright Copyright (c) 2019
+ * 
+ */
 #include "Semaphore.h"
 #include <iostream>
 #include <thread>
 #include <unistd.h>
 
-/*Task 2 will be forced to wait until Task one 
-*ends and gives a signal before continuing*/
+/** @fn taskOne
+ * @brief Will run after delay and print message first
+ * @param shared_ptr<Semaphore> theSemaphore
+ * @param int delay
+ */ 
 
 /*! displays a message first*/
 void taskOne(std::shared_ptr<Semaphore> theSemaphore, int delay){
@@ -21,6 +28,11 @@ void taskOne(std::shared_ptr<Semaphore> theSemaphore, int delay){
   std::cout << "first"<<std::endl;
   theSemaphore -> Signal();
 }
+
+/** @fn taskTwo
+ * @brief Forced to wait for taskOne to complete and print message second
+ * @param shared_ptr<Semaphore> theSemaphore
+ */ 
 /*! displays a message second*/
 void taskTwo(std::shared_ptr<Semaphore> theSemaphore){
   theSemaphore -> Wait();
@@ -30,6 +42,11 @@ void taskTwo(std::shared_ptr<Semaphore> theSemaphore){
   std::cout << "second"<<std::endl;
 }
 
+/** @fn main
+ * @brief Will initialise two threads and a semaphore
+          Then run taskOne and taskTwo
+          and join the threads afterwards.
+ */ 
 
 int main(void){
   std::thread threadOne, threadTwo;

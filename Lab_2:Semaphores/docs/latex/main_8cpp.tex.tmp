@@ -1,0 +1,67 @@
+\hypertarget{main_8cpp}{}\section{main.\+cpp File Reference}
+\label{main_8cpp}\index{main.\+cpp@{main.\+cpp}}
+
+
+An Implementation of Threads Using Semaphores. Uses C++11 features such as mutex and condition variables to implement Semaphores in thread functions.  
+
+
+{\ttfamily \#include \char`\"{}Semaphore.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$thread$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+Include dependency graph for main.\+cpp\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{main_8cpp_a2b4729d561c345111ccab970fe11e229}{task\+One} (std\+::shared\+\_\+ptr$<$ \hyperlink{classSemaphore}{Semaphore} $>$ the\+Semaphore, int delay)
+\item 
+void \hyperlink{main_8cpp_ae4ea9570be601d182fa473c7ca431852}{task\+Two} (std\+::shared\+\_\+ptr$<$ \hyperlink{classSemaphore}{Semaphore} $>$ the\+Semaphore)
+\item 
+int \hyperlink{main_8cpp_a568b3afc214ba30be5bf526d6b27b611}{main} (void)
+\begin{DoxyCompactList}\small\item\em Will initialise two threads and a semaphore Then run task\+One and task\+Two and join the threads afterwards. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+An Implementation of Threads Using Semaphores. Uses C++11 features such as mutex and condition variables to implement Semaphores in thread functions. 
+
+\begin{DoxyAuthor}{Author}
+Rhyder Quinlan 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2019-\/11-\/22
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2019 
+\end{DoxyCopyright}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{main_8cpp_a568b3afc214ba30be5bf526d6b27b611}\label{main_8cpp_a568b3afc214ba30be5bf526d6b27b611}} 
+\index{main.\+cpp@{main.\+cpp}!main@{main}}
+\index{main@{main}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Will initialise two threads and a semaphore Then run task\+One and task\+Two and join the threads afterwards. 
+
+$<$ Launch the threads
+
+$<$ Wait for the threads to finish \mbox{\Hypertarget{main_8cpp_a2b4729d561c345111ccab970fe11e229}\label{main_8cpp_a2b4729d561c345111ccab970fe11e229}} 
+\index{main.\+cpp@{main.\+cpp}!task\+One@{task\+One}}
+\index{task\+One@{task\+One}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{task\+One()}{taskOne()}}
+{\footnotesize\ttfamily void task\+One (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \hyperlink{classSemaphore}{Semaphore} $>$}]{the\+Semaphore,  }\item[{int}]{delay }\end{DoxyParamCaption})}
+
+displays a message first \mbox{\Hypertarget{main_8cpp_ae4ea9570be601d182fa473c7ca431852}\label{main_8cpp_ae4ea9570be601d182fa473c7ca431852}} 
+\index{main.\+cpp@{main.\+cpp}!task\+Two@{task\+Two}}
+\index{task\+Two@{task\+Two}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{task\+Two()}{taskTwo()}}
+{\footnotesize\ttfamily void task\+Two (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \hyperlink{classSemaphore}{Semaphore} $>$}]{the\+Semaphore }\end{DoxyParamCaption})}
+
+displays a message second 
