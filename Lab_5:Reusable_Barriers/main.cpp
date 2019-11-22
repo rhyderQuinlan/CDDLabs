@@ -1,3 +1,13 @@
+/*
+  Lab 5: Reusable Barriers
+  This program prints out either the letter 'A' or 'B'
+  grouped by a shared variable and the number of threads (set to 100)
+
+  The barrierTask uses a reusable barrier to make sure all threads
+  run on one task (print A and shared_variable) before continuing
+  to the next task (Print B and shared_variable)
+*/
+
 #include "Barrier.h"
 #include <iostream>
 #include <thread>
@@ -18,12 +28,15 @@ void barrierTask(std::shared_ptr<Barrier> theBarrier, int numLoops){
     //Do first bit of task
     std::cout << "A"<< i;
     //Barrier
-    theBarrier.wait();
+    theBarrier->initial_step();
+    
+    
     //Do second half of task
     std::cout<< "B" << i;
-  }
-  
 
+    //turn barrier
+    theBarrier->final_step();
+  }
 }
 
 
@@ -33,7 +46,7 @@ int main(void){
   /**< Launch the threads  */
   int i=0;
   for(std::thread& t: vt){
-    t=std::thread(updateTask,aBarrier,10);
+    t=std::thread(barrierTask,aBarrier,10);
   }
   /**< Join the threads with the main thread */
   for (auto& v :vt){

@@ -44,12 +44,20 @@
 
 /* Code: */
 #pragma once
+#include "Semaphore.h"
 class Barrier{
+private:
   int numThreads;
- public:
+  int current_count;
+  std::shared_ptr<Semaphore> lock;
+  std::shared_ptr<Semaphore> t_one; //turnstiles allowing 
+  std::shared_ptr<Semaphore> t_two; //threads to pass
+public:
   Barrier(int numThreads);
   virtual ~Barrier();
-  void wait();  
+  void wait();
+  void initial_step();
+  void final_step(); 
 };
 
 

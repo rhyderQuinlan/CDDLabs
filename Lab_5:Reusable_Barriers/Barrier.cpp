@@ -46,7 +46,61 @@
 // Code:
 #include "Semaphore.h"
 #include "Barrier.h"
+#include <iostream>
 
+//constructor method
+Barrier::Barrier(int numThreads)
+{
+    this->numThreads = numThreads;
+    current_count = 0;
+    lock.reset(new Semaphore(1));
+    t_one.reset(new Semaphore(0));
+    t_two.reset(new Semaphore(1));
+}
+
+//Destructor method
+Barrier::~Barrier()
+{
+    lock.reset();
+    t_one.reset();
+    t_two.reset();
+    std::cout << "Run Destructor complete" << std::endl;
+}
+
+void Barrier::wait()
+{
+    initial_step();
+    final_step();
+}
+
+void Barrier::initial_step()
+{
+    lock->Wait();
+    ++current_count;
+    if (current_count == numThreads)
+    {
+        t_two->Wait();
+        t_one->Signal();
+    }
+    lock->Signal();
+    t_one->Wait();
+    t_one->Signal();
+}
+
+
+void Barrier::final_step()
+{
+    lock->Wait();
+    --current_count;
+    if (current_count == 0)
+    {
+        t_one->Wait();
+        t_two->Signal();
+    }
+    lock->Signal();
+    t_two->Wait();
+    t_two->Signal();
+}
 
 // 
 // Barrier.cpp ends here
