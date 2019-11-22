@@ -1,6 +1,6 @@
 #Rhyder Quinlan, C00223030
 # Lab 5: Reusable Barriers
-#Output -> barrier
+#Output -> run
 #Includes Semaphore.cpp and main.cpp
 
 
@@ -12,7 +12,7 @@ CFLAGS= -std=c++11 -pthread -O0
 	$(CC) -c -o $@ $< $(CFLAGS) $(DEBUGFLAGS)
 
 ALL: main.o
-	$(CC) -o barrier Barrier.cpp Semaphore.cpp main.cpp $(CFLAGS) $(DEBUGFLAGS)
+	$(CC) -o run Barrier.cpp Semaphore.cpp main.cpp $(CFLAGS) $(DEBUGFLAGS)
 
 DEBUG: DEBUGFLAGS = -DDEBUG -Wall
 DEBUG: ALL

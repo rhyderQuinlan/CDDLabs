@@ -1,12 +1,18 @@
-/*
-  Lab 5: Reusable Barriers
-  This program prints out either the letter 'A' or 'B'
-  grouped by a shared variable and the number of threads (set to 100)
-
-  The barrierTask uses a reusable barrier to make sure all threads
-  run on one task (print A and shared_variable) before continuing
-  to the next task (Print B and shared_variable)
-*/
+/**
+ * @file main.cpp
+ * @author Rhyder Quinlan
+ * @brief 
+ * This program prints out either the letter 'A' or 'B'
+ * grouped by a shared variable and the number of threads (set to 100)
+ * The barrierTask uses a reusable barrier to make sure all threads
+ * run on one task (print A and shared_variable) before continuing
+ * to the next task (Print B and shared_variable)
+ * @version 0.1
+ * @date 2019-11-22
+ * 
+ * @copyright Copyright (c) 2019
+ * 
+ */
 
 #include "Barrier.h"
 #include <iostream>
@@ -18,10 +24,12 @@ static const int num_threads = 100;
 int sharedVariable=0;
 
 
-/*! \fn barrierTask
-    \brief An example of using a reusable barrier
-*/
-/*! displays a message that is split in to 2 sections to show how a rendezvous works*/
+/**
+ * @brief displays a message that is split in to 2 sections to show how a rendezvous works
+ * 
+ * @param theBarrier 
+ * @param numLoops 
+ */
 void barrierTask(std::shared_ptr<Barrier> theBarrier, int numLoops){
 
   for(int i=0;i<numLoops;++i){
@@ -39,7 +47,11 @@ void barrierTask(std::shared_ptr<Barrier> theBarrier, int numLoops){
   }
 }
 
-
+/**
+ * @brief creates a barrier (from barrier class) and demonstrates how it works with multiple threads.
+ * 
+ * @return int 
+ */
 int main(void){
   std::vector<std::thread> vt(num_threads);
   std::shared_ptr<Barrier> aBarrier( new Barrier(num_threads));

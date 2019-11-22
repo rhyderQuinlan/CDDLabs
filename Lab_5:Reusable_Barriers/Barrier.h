@@ -2,7 +2,7 @@
  * 
  * Filename: Barrier.h
  * Description: 
- * Author: Joseph
+ * Author: Joseph, Rhyder Quinlan
  * Maintainer: 
  * Created: Tue Jan  8 12:12:03 2019 (+0000)
  * Version: 

@@ -1,8 +1,19 @@
+/**
+ * @file barrier.cpp
+ * @author Rhyder Quinlan
+ * @brief A Barrier instance used within main
+ * @version 0.1
+ * @date 2019-11-22
+ * 
+ * @copyright Copyright (c) 2019
+ * 
+ */
+
 // Barrier.cpp --- 
 // 
 // Filename: Barrier.cpp
 // Description: 
-// Author: Joseph
+// Author: Joseph Kehoe, Rhyder Quinlan
 // Maintainer: 
 // Created: Tue Jan  8 12:14:02 2019 (+0000)
 // Version: 
@@ -49,6 +60,11 @@
 #include <iostream>
 
 //constructor method
+/**
+ * @brief Construct a new Barrier:: Barrier object
+ * 
+ * @param numThreads 
+ */
 Barrier::Barrier(int numThreads)
 {
     this->numThreads = numThreads;
@@ -59,6 +75,10 @@ Barrier::Barrier(int numThreads)
 }
 
 //Destructor method
+/**
+ * @brief Destroy the Barrier:: Barrier object
+ * 
+ */
 Barrier::~Barrier()
 {
     lock.reset();
@@ -67,6 +87,10 @@ Barrier::~Barrier()
     std::cout << "Run Destructor complete" << std::endl;
 }
 
+/**
+ * @brief Trigger initial_step and final_step
+ * 
+ */
 void Barrier::wait()
 {
     initial_step();
@@ -86,7 +110,6 @@ void Barrier::initial_step()
     t_one->Wait();
     t_one->Signal();
 }
-
 
 void Barrier::final_step()
 {
