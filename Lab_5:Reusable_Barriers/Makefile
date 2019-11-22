@@ -14,7 +14,7 @@ CFLAGS= -std=c++11 -pthread -O0
 ALL: main.o
 	$(CC) -o barrier Barrier.cpp Semaphore.cpp main.cpp $(CFLAGS) $(DEBUGFLAGS)
 
-DEBUG: DEBUGFLAGS = -DDEBUG
+DEBUG: DEBUGFLAGS = -DDEBUG -Wall
 DEBUG: ALL
 
 #this is customary and just deletes all .o files
