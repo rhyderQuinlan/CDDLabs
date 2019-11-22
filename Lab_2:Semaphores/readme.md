@@ -12,16 +12,16 @@ sudo apt-get install build-essential
 ```
 
 ## Files:
- - lab1.cpp
- - helloThreads.cpp
  - main.cpp
+ - Semaphore.cpp
  - Makefile
+ - Doxyfile
 
 ## Directories
  - docs
 
 ## Documentation
-[Documentation](/docs) generated with Doxygen.
+[Documentation](./docs) generated with Doxygen.
 
 ## Project License
 MIT License
