@@ -1,5 +1,16 @@
-#include "Barrier.h"
+/**
+ * @file main.cpp
+ * @author Rhyder Quinlan
+ * @brief Demonstration of producers and consumers.
+ * @version 0.1
+ * @date 2019-11-22
+ * 
+ * @copyright Copyright (c) 2019
+ * 
+ */
+
 #include "Event.h"
+#include "SafeBuffer.h"
 #include <iostream>
 #include <thread>
 #include <vector>
@@ -9,49 +20,68 @@ static const int num_threads = 100;
 const int size=20;
 
 
-/*! \fn producer
-    \brief Creates events and adds them to buffer
-*/
-
-void producer(std::shared_ptr<SafeBuffer<std::shared_ptr<Event>> theBuffer, int numLoops){
+/**
+ * @brief Initialises event and pushes to buffer (b)
+ * 
+ * @param b 
+ * @param numLoops 
+ */
+void producer(std::shared_ptr<SafeBuffer> b, int numLoops){
 
   for(int i=0;i<numLoops;++i){
     //Produce event and add to buffer
-    Event e= createEvent(i);
-    theBuffer.put(e);
+    Event event ;
+    b->push(event);
   }
   
 
 }
 
-/*! \fn consumer
-    \brief Takes events from buffer and consumes them
-*/
-
-void consumer(std::shared_ptr<SafeBuffer<std::shared_ptr Event>> theBuffer, int numLoops){
+/**
+ * @brief consumes (pops) next event on buffer (b)
+ * 
+ * @param b 
+ * @param numLoops 
+ */
+void consumer(std::shared_ptr<SafeBuffer> b, int numLoops){
 
   for(int i=0;i<numLoops;++i){
-    //Produce event and add to buffer
-    std::shared_ptr<Event> e= theBuffer->get();
-    e->consume();
+    Event event ;
+    event = b->pop();
+    event.consume();
   }
-  
 
 }
 
+/**
+ * @brief Creates two vectors of producers and consumers and a buffer of the SafeBuffer class.
+ * Demonstration of threads events being produced and consumed.
+ * 
+ * @return int 
+ */
 int main(void){
 
-  std::vector<std::thread> vt(num_threads);
-  std::shared_ptr<SafeBuffer<std::shared_ptr<Event>> aBuffer( new Buffer<shared_ptr Event>(size));
+  std::vector<std::thread> producers(num_threads);
+  std::vector<std::thread> consumers(num_threads);
+  std::shared_ptr<SafeBuffer> buffer( new SafeBuffer());
+
   /**< Launch the threads  */
-  int i=0;
-  for(std::thread& t: vt){
-    t=std::thread(updateTask,aBarrier,10);
+  for(std::thread& p: producers){
+    p=std::thread(producer,buffer,10);
   }
+
+  for(std::thread& c: consumers){
+    c=std::thread(consumer,buffer,10);
+  }
+  
   /**< Join the threads with the main thread */
-  for (auto& v :vt){
-      v.join();
+  for (auto& p :producers){
+      p.join();
   }
-  std::cout << sharedVariable << std::endl;
+  for (auto& c :consumers){
+      c.join();
+  }
+
+  std::cout << std::endl;
   return 0;
 }

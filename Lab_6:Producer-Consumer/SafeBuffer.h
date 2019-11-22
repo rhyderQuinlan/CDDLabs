@@ -43,7 +43,22 @@
  */
 
 /* Code: */
+#pragma once
+#include "Event.h"
+#include "Semaphore.h"
+#include <vector>
 
+class SafeBuffer{
+    private:
+        std::vector<Event> Data;
+        std::shared_ptr<Semaphore> Mutex;
+        std::shared_ptr<Semaphore> Sem;
+
+    public:
+        SafeBuffer();
+        int push(Event);
+        Event pop();
+};
 
 
 /* SafeBuffer.h ends here */

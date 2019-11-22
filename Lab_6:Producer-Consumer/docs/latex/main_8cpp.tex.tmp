@@ -1,0 +1,96 @@
+\hypertarget{main_8cpp}{}\section{main.\+cpp File Reference}
+\label{main_8cpp}\index{main.\+cpp@{main.\+cpp}}
+
+
+Demonstration of producers and consumers.  
+
+
+{\ttfamily \#include \char`\"{}Event.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Safe\+Buffer.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$thread$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+Include dependency graph for main.\+cpp\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{main_8cpp_ad9972698758c6884b2616bca97aae50a}{producer} (std\+::shared\+\_\+ptr$<$ \hyperlink{classSafeBuffer}{Safe\+Buffer} $>$ b, int num\+Loops)
+\begin{DoxyCompactList}\small\item\em Initialises event and pushes to buffer (b) \end{DoxyCompactList}\item 
+void \hyperlink{main_8cpp_ae3b53d59e75d5be4ade6d71a69139776}{consumer} (std\+::shared\+\_\+ptr$<$ \hyperlink{classSafeBuffer}{Safe\+Buffer} $>$ b, int num\+Loops)
+\begin{DoxyCompactList}\small\item\em consumes (pops) next event on buffer (b) \end{DoxyCompactList}\item 
+int \hyperlink{main_8cpp_a840291bc02cba5474a4cb46a9b9566fe}{main} (void)
+\begin{DoxyCompactList}\small\item\em Creates two vectors of producers and consumers and a buffer of the \hyperlink{classSafeBuffer}{Safe\+Buffer} class. Demonstration of threads events being produced and consumed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8cpp_aab938108caad0d0e47d6885b5ba2d23a}\label{main_8cpp_aab938108caad0d0e47d6885b5ba2d23a}} 
+const int {\bfseries size} =20
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Demonstration of producers and consumers. 
+
+\begin{DoxyAuthor}{Author}
+Rhyder Quinlan 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2019-\/11-\/22
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2019 
+\end{DoxyCopyright}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{main_8cpp_ae3b53d59e75d5be4ade6d71a69139776}\label{main_8cpp_ae3b53d59e75d5be4ade6d71a69139776}} 
+\index{main.\+cpp@{main.\+cpp}!consumer@{consumer}}
+\index{consumer@{consumer}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{consumer()}{consumer()}}
+{\footnotesize\ttfamily void consumer (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \hyperlink{classSafeBuffer}{Safe\+Buffer} $>$}]{b,  }\item[{int}]{num\+Loops }\end{DoxyParamCaption})}
+
+
+
+consumes (pops) next event on buffer (b) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em b} & \\
+\hline
+{\em num\+Loops} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8cpp_a840291bc02cba5474a4cb46a9b9566fe}\label{main_8cpp_a840291bc02cba5474a4cb46a9b9566fe}} 
+\index{main.\+cpp@{main.\+cpp}!main@{main}}
+\index{main@{main}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Creates two vectors of producers and consumers and a buffer of the \hyperlink{classSafeBuffer}{Safe\+Buffer} class. Demonstration of threads events being produced and consumed. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+$<$ Launch the threads \mbox{\Hypertarget{main_8cpp_ad9972698758c6884b2616bca97aae50a}\label{main_8cpp_ad9972698758c6884b2616bca97aae50a}} 
+\index{main.\+cpp@{main.\+cpp}!producer@{producer}}
+\index{producer@{producer}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{producer()}{producer()}}
+{\footnotesize\ttfamily void producer (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \hyperlink{classSafeBuffer}{Safe\+Buffer} $>$}]{b,  }\item[{int}]{num\+Loops }\end{DoxyParamCaption})}
+
+
+
+Initialises event and pushes to buffer (b) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em b} & \\
+\hline
+{\em num\+Loops} & \\
+\hline
+\end{DoxyParams}

@@ -44,6 +44,13 @@
 
 /* Code: */
 
-
+#pragma once
+class Event{
+    private:
+        char letter;
+    public:
+        Event();
+        void consume();
+};
 
 /* Event.h ends here */
