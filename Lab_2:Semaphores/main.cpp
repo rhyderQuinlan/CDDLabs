@@ -8,18 +8,13 @@
  * @copyright Copyright (c) 2019
  * 
  */
+
 #include "Semaphore.h"
 #include <iostream>
 #include <thread>
 #include <unistd.h>
 
-/** @fn taskOne
- * @brief Will run after delay and print message first
- * @param shared_ptr<Semaphore> theSemaphore
- * @param int delay
- */ 
-
-/*! displays a message first*/
+/*! Will run after delay and print message first*/
 void taskOne(std::shared_ptr<Semaphore> theSemaphore, int delay){
   sleep(delay);
   std::cout <<"I ";
@@ -29,11 +24,7 @@ void taskOne(std::shared_ptr<Semaphore> theSemaphore, int delay){
   theSemaphore -> Signal();
 }
 
-/** @fn taskTwo
- * @brief Forced to wait for taskOne to complete and print message second
- * @param shared_ptr<Semaphore> theSemaphore
- */ 
-/*! displays a message second*/
+/*! Forced to wait for taskOne to complete and print message second*/
 void taskTwo(std::shared_ptr<Semaphore> theSemaphore){
   theSemaphore -> Wait();
   std::cout <<"This ";
@@ -44,7 +35,7 @@ void taskTwo(std::shared_ptr<Semaphore> theSemaphore){
 
 /** @fn main
  * @brief Will initialise two threads and a semaphore
-          Then run taskOne and taskTwo
+          then run taskOne and taskTwo
           and join the threads afterwards.
  */ 
 
