@@ -1,0 +1,68 @@
+\hypertarget{main_8cpp}{}\section{main.\+cpp File Reference}
+\label{main_8cpp}\index{main.\+cpp@{main.\+cpp}}
+
+
+Working with rendezvous points.  
+
+
+{\ttfamily \#include \char`\"{}Semaphore.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$thread$>$}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+Include dependency graph for main.\+cpp\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{main_8cpp_a9141e3eb0b1274e58b053fd8a60a94e3}{task\+One} (std\+::shared\+\_\+ptr$<$ \hyperlink{classSemaphore}{Semaphore} $>$ first\+Sem, std\+::shared\+\_\+ptr$<$ \hyperlink{classSemaphore}{Semaphore} $>$ second\+Sem, int delay)
+\item 
+void \hyperlink{main_8cpp_ac7cb6b39082835c7e3c853c42af9ecdc}{task\+Two} (std\+::shared\+\_\+ptr$<$ \hyperlink{classSemaphore}{Semaphore} $>$ first\+Sem, std\+::shared\+\_\+ptr$<$ \hyperlink{classSemaphore}{Semaphore} $>$ second\+Sem, int delay)
+\item 
+int \hyperlink{main_8cpp_a840291bc02cba5474a4cb46a9b9566fe}{main} (void)
+\begin{DoxyCompactList}\small\item\em Creates 2 semaphores and 2 threads. Running task\+One and task\+Two will show how a rendezvous makes all threads wait until all are ready together to continue. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Working with rendezvous points. 
+
+\begin{DoxyAuthor}{Author}
+Rhyder Quinlan C00223030 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2019-\/11-\/22
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2019 
+\end{DoxyCopyright}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{main_8cpp_a840291bc02cba5474a4cb46a9b9566fe}\label{main_8cpp_a840291bc02cba5474a4cb46a9b9566fe}} 
+\index{main.\+cpp@{main.\+cpp}!main@{main}}
+\index{main@{main}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Creates 2 semaphores and 2 threads. Running task\+One and task\+Two will show how a rendezvous makes all threads wait until all are ready together to continue. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+$<$ Launch the threads \mbox{\Hypertarget{main_8cpp_a9141e3eb0b1274e58b053fd8a60a94e3}\label{main_8cpp_a9141e3eb0b1274e58b053fd8a60a94e3}} 
+\index{main.\+cpp@{main.\+cpp}!task\+One@{task\+One}}
+\index{task\+One@{task\+One}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{task\+One()}{taskOne()}}
+{\footnotesize\ttfamily void task\+One (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \hyperlink{classSemaphore}{Semaphore} $>$}]{first\+Sem,  }\item[{std\+::shared\+\_\+ptr$<$ \hyperlink{classSemaphore}{Semaphore} $>$}]{second\+Sem,  }\item[{int}]{delay }\end{DoxyParamCaption})}
+
+displays a message that is split in to 2 sections to show how a rendezvous works \mbox{\Hypertarget{main_8cpp_ac7cb6b39082835c7e3c853c42af9ecdc}\label{main_8cpp_ac7cb6b39082835c7e3c853c42af9ecdc}} 
+\index{main.\+cpp@{main.\+cpp}!task\+Two@{task\+Two}}
+\index{task\+Two@{task\+Two}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{task\+Two()}{taskTwo()}}
+{\footnotesize\ttfamily void task\+Two (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \hyperlink{classSemaphore}{Semaphore} $>$}]{first\+Sem,  }\item[{std\+::shared\+\_\+ptr$<$ \hyperlink{classSemaphore}{Semaphore} $>$}]{second\+Sem,  }\item[{int}]{delay }\end{DoxyParamCaption})}
+
+displays a message that is split in to 2 sections to show how a rendezvous works 

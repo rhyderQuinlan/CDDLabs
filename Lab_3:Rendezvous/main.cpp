@@ -1,64 +1,59 @@
+/**
+ * @file main.cpp
+ * @author Rhyder Quinlan C00223030
+ * @brief Working with rendezvous points.
+ * @version 0.1
+ * @date 2019-11-22
+ * 
+ * @copyright Copyright (c) 2019
+ * 
+ */
+
 #include "Semaphore.h"
 #include <iostream>
 #include <thread>
 #include <chrono>
 
-/*! \class Signal
-    \brief An Implementation of a Rendezvous using Semaphores
-
-   Uses C++11 features such as mutex and condition variables to implement an example of a rendezvous for threads
-
-*/
 /*! displays a message that is split in to 2 sections to show how a rendezvous works*/
 void taskOne(std::shared_ptr<Semaphore> firstSem,std::shared_ptr<Semaphore>  secondSem, int delay){
   std::this_thread::sleep_for(std::chrono::seconds(delay));
   std::cout <<"Task One has arrived! "<< std::endl;
+  firstSem->Signal();
   //THIS IS THE RENDEZVOUS POINT!
-  theMutex->Wait();
-  counter++;
-  if(counter == 10){
-    otherSemaphore->Wait();
-    theSemaphore->Signal();
-  }
-  theMutex->Signal();
-  theSemaphore->Wait();
-  theSemaphore->Signal();
-
+  secondSem->Wait();
   std::cout << "Task One has left!"<<std::endl;
-
-  theMutex->Wait();
-  counter--;
-  if(counter == 0){
-    theSemaphore->Wait();
-    otherSemaphore->Signal();
-  }
-  theMutex->Signal();
-  otherSemaphore->Wait();
-  otherSemaphore->Signal();
 }
 /*! displays a message that is split in to 2 sections to show how a rendezvous works*/
 void taskTwo(std::shared_ptr<Semaphore> firstSem, std::shared_ptr<Semaphore> secondSem, int delay){
   std::this_thread::sleep_for(std::chrono::seconds(delay));
   std::cout <<"Task Two has arrived "<<std::endl;
+  secondSem->Signal();
   //THIS IS THE RENDEZVOUS POINT!
+  firstSem->Wait();
   std::cout << "Task Two has left "<<std::endl;
 }
 
+/**
+ * @brief Creates 2 semaphores and 2 threads.
+ * Running taskOne and taskTwo will show how a rendezvous
+ * makes all threads wait until all are ready together
+ * to continue.
+ * 
+ * @return int 
+ */
 int main(void){
-  std::thread threadArray[10];
   std::shared_ptr<Semaphore> sem1( new Semaphore);
   std::shared_ptr<Semaphore> sem2( new Semaphore(1));
-  std::shared_ptr<Semaphore> mutex1( new Semaphore);
-  mutex1->Signal();
+  int taskOneDelay = 3;
+  int taskTwoDelay = 1;
   /**< Launch the threads  */
-  for (int i = 0; i < 10; ++i)
-  {
-    threadArray[i]=std::thread(taskOne, sem1, mutex1, sem2);
-  }
+
+  std::thread ThreadOne = std::thread(taskTwo,sem1,sem2,taskTwoDelay);
+  std::thread ThreadTwo = std::thread(taskOne,sem1,sem2,taskOneDelay);
+  
   std::cout << "Launched from the main\n";
-  for (int i = 0; i < 10; ++i)
-  {
-    threadArray[i].join();
-  }
+  ThreadOne.join();
+  ThreadTwo.join();
+
   return 0;
 }
