@@ -1,6 +1,6 @@
 #Rhyder Quinlan, C00223030
 # Lab 4: Mutual Exclusion
-#Output -> mutuex
+#Output -> run
 #Includes Semaphore.cpp and main.cpp
 
 
@@ -12,7 +12,7 @@ CFLAGS= -std=c++11 -pthread -O0
 	$(CC) -c -o $@ $< $(CFLAGS) $(DEBUGFLAGS)
 
 ALL: main.o
-	$(CC) -o mutex Semaphore.cpp main.cpp $(CFLAGS) $(DEBUGFLAGS)
+	$(CC) -o run Semaphore.cpp main.cpp $(CFLAGS) $(DEBUGFLAGS)
 
 DEBUG: DEBUGFLAGS = -DDEBUG
 DEBUG: ALL

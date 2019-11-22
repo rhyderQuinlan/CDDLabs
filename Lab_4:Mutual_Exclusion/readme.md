@@ -1,4 +1,28 @@
 # Lab 4 - Mutual Exclusion
+## Authors
+ - Rhyder Quinlan, C00223030
+ - Joseph Kehoe
+
+## Installation
+Run the makefile from the command line - "make", run as ./run
+
+## Required libraries
+```bash
+sudo apt-get install build-essential
+```
+
+## Files:
+ - main.cpp
+ - Semaphore.cpp
+ - Makefile
+ - Doxyfile
+
+## Directories
+ - docs
+
+## Documentation
+[Documentation](./docs) generated with Doxygen.
+
 ## Project License
 MIT License
 
@@ -21,24 +45,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-
-
-## Authors
-Rhyder Quinlan, C00223030
-Joseph Kehoe
-
-## Installation
-Run the makefile from the command line - "make", run as ./signal
-
-## Required libraries
-```bash
-sudo apt-get install build-essential
-```
-
-## Files:
- - Semaphore.h
- - Semaphore.cpp
- - signal.cpp
- - main.cpp
- - mutex
