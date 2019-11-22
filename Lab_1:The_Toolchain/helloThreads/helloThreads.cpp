@@ -1,9 +1,14 @@
-/*! \file hellothreads.cpp
-    \brief A Documented file.
-    
-    You should document all your files using doxygen.  
-    NOTE: Any files not documented in this manner will not be accepted!
-*/
+/**
+ * @file helloThreads.cpp
+ * @author Rhyder Quinlan
+ * @brief Lab 1 - Hellothreads file
+ * @version 0.1
+ * @date 2019-11-22
+ * 
+ * @copyright Copyright (c) 2019
+ * 
+ */
+
 #include <iostream>
 #include <thread>
 #include <vector>
